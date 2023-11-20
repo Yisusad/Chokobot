@@ -29,7 +29,8 @@ def get_text_chunks(docss):
 #Crea la base de vectores
 def get_vectorstore(text_chunks):
     embeddings = OpenAIEmbeddings(openai_api_key=st.secrets["OPENAI_API_KEY"])
-    vectorstore = Chroma.from_documents(documents=text_chunks, embedding=embeddings)
+    directory = "pdfs"
+    vectorstore = Chroma.from_documents(documents=text_chunks, embedding=embeddings, persist_directory=directory)
     return vectorstore
 
 #Crea la cadena de conversación
