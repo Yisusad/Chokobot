@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 import openai
 __import__('pysqlite3')
 import sys
@@ -78,8 +79,8 @@ def main():
     with st.sidebar:
         st.subheader("Pulsa 'PROCESAR' para tener la información mas actualizada")
 
-        openai.api_key = st.secrets.openai_key
-        st.success(openai.api_key)
+        os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+        openai.api_key = os.environ["OPENAI_API_KEY"]
         
         # Cargar los Pdfs
         loader = PyPDFDirectoryLoader("pdfs/")
