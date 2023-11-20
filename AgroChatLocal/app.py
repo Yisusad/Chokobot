@@ -28,13 +28,13 @@ def get_text_chunks(docss):
 
 #Crea la base de vectores
 def get_vectorstore(text_chunks):
-    embeddings = OpenAIEmbeddings(openai_api_key=st.secrets.openai_key)
+    embeddings = OpenAIEmbeddings(openai_api_key=st.secrets["OPENAI_API_KEY"])
     vectorstore = Chroma.from_documents(documents=text_chunks, embedding=embeddings)
     return vectorstore
 
 #Crea la cadena de conversación
 def get_conversation_chain(vectorstore):
-    llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=1, openai_api_key=st.secrets.openai_key)
+    llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=1, openai_api_key=st.secrets["OPENAI_API_KEY"])
 
     memory = ConversationBufferMemory(
         memory_key='chat_history', return_messages=True)
