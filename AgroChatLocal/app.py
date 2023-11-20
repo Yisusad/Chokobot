@@ -79,6 +79,7 @@ def main():
         st.subheader("Pulsa 'PROCESAR' para tener la información mas actualizada")
 
         openai.api_key = st.secrets.openai_key
+        st.success(openai.api_key)
         
         # Cargar los Pdfs
         loader = PyPDFDirectoryLoader("pdfs/")
