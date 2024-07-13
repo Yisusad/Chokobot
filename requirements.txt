@@ -1,10 +1,9 @@
 langchain
 langchain-community
 PyPDF2==3.0.1
-python-dotenv==1.0.0
 streamlit
 openai
-faiss-cpu==1.7.4
+faiss-cpu
 altair==4
 tiktoken==0.4.0
 pypdf
